@@ -34,10 +34,10 @@ const EventsSelector = () => {
     
 
     return (
-        <div className="container lg:w-2/3 mt-10 mb-5 lg:mb-20">
-            <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 lg:h-[350px]">
+        <div className="container lg:w-2/3 mt-10 mb-5 lg:mb-20 lg:overflow-scroll xl:overflow-visible">
+            <div className="w-full grid grid-cols-1 xl:grid-cols-3 gap-4 lg:h-[350px]">
                 <div className="flex justify-center">
-                    <ul className="menu menu-compact lg:menu-normal lg:h-2/3 bg-isles-gray w-56 p-2 rounded-box text-cultured2">
+                    <ul className="menu menu-compact lg:menu-normal xl:h-2/3 bg-isles-gray w-56 p-2 rounded-box text-cultured2">
                         <li className="place-items-center" onClick={(e) => {eventHandler(eventItems.weddings)}}>
                             <a><p className="lg:text-2xl text-center">Weddings</p></a>
                         </li>

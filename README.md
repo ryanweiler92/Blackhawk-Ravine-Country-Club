@@ -16,7 +16,7 @@ This application is for members of Blackhawk Ravine, a fictional golf course in 
 * [License](#license)
 
 ## Technologies
-Made with React, Tailwind CSS, MongoDB, Apollo & GraphQL
+Made with React, Tailwind CSS, MongoDB, Express, Apollo & GraphQL
 
 ## Usage
 ![screenshot](./client/src/assets/images/screenshot.jpg)
