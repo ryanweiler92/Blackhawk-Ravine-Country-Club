@@ -8,7 +8,7 @@ type Query {
   }
 
   type Mutation {
-    register(user: NewUser!): AuthResponse
+    register(username: String!, password: String!): AuthResponse
     signin(username: String!, password: String!): AuthResponse
     saveScore(
       totalScore: Int!

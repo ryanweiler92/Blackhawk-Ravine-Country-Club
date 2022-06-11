@@ -13,7 +13,7 @@ export default function MyScores() {
     }
 
     return (
-        <div >
+        <div className="min-h-screen">
             <HeroHalf heroText={heroText} hero={myScoresHero}/>
             <ScoreHistory />
 

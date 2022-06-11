@@ -8,6 +8,10 @@ import {Link} from 'react-router-dom'
 
 
 const VirtualScorecard = () => {
+    
+    const refreshPage = () => {
+        window.location.reload()
+    }
 
     //state variable to show thank you screen after submitting score
     const [thankYouScreen, showThankYouScreen] = useState(false)
@@ -31,12 +35,29 @@ const VirtualScorecard = () => {
     //state array variable to hold scores for each hole when we send mutation
     const [finalScores, setFinalScores] = useState([])
 
+    const [submitBtn, setSubmitBtn] = useState(false)
+
     //updating state object each time user enters hole score
     const scoreChange = (hole, holeScore) => {
         setScore(prevState => ({
             ...prevState, [hole]: holeScore
         }))
+
     }
+
+    useEffect(() => {
+        const checkScoreCard = async () => {  
+        for (const [key, value] of Object.entries(score)){
+            let isnum = /^\d+$/.test(value)
+            if (value == "" || isnum == false){
+                setSubmitBtn(false)
+            break; } else {
+                setSubmitBtn(true)
+            }}
+        }
+        checkScoreCard()
+    }, [score])
+
 
     //update total score each time user enters score by looping through state object
     useEffect(() => {
@@ -57,13 +78,13 @@ const VirtualScorecard = () => {
     const scoreHandler = () => {
         //check for empty inputs
         for (const [key, value] of Object.entries(score)){
-            if (value == ""){
-                console.log('NO')
-            break; } else {
+            // if (value == ""){
+            //     console.log('NO')
+            // break; } else {
                 const numberValue = parseInt(value)
                 setFinalScores(oldArray => [...oldArray, numberValue])
             }
-        }
+        // }
     }
 
     //waiting until the hole scores are all pushed to the finalScores array
@@ -301,7 +322,7 @@ const VirtualScorecard = () => {
                         </div>
                     </div>
                 </div>
-                {Auth.loggedIn() ? (
+                {submitBtn ? (
                 <div className="flex justify-center align-center mt-4">
                 <button className="btn bg-isles-green border-0"
                 onClick={scoreHandler}>Submit Score</button>
@@ -327,16 +348,16 @@ const VirtualScorecard = () => {
                 
                 <div className="mt-6 sm:-mx-2">
                     <div className="inline-flex w-full overflow-hidden rounded-lg shadow sm:w-auto sm:mx-2">
-                        <Link to="/scores" className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white bg-isles-green text-cultured2 sm:w-auto">
+                        <Link to="/scores" as={Link} className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white bg-isles-green text-cultured2 sm:w-auto">
 
-                            <span className="mx-2">
+                            <span onClick={refreshPage} className="mx-2">
                                 Enter Another Score
                             </span>
                         </Link>
                     </div>
 
                     <div className="inline-flex w-full mt-4 overflow-hidden rounded-lg shadow sm:w-auto sm:mx-2 sm:mt-0">
-                        <Link to="/myscores" class="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white transition-colors duration-150 transform sm:w-auto bg-isles-blue text-cultured2">
+                        <Link to="/myscores" as={Link} className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white transition-colors duration-150 transform sm:w-auto bg-isles-blue text-cultured2">
                             <span className="mx-2">
                                 Check Out My Scores
                             </span> 

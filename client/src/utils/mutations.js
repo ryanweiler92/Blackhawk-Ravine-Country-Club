@@ -2,8 +2,7 @@ import { gql } from '@apollo/client'
 
 export const REGISTER = gql`
 mutation register ($username: String!, $password: String!) {
-    register (user: {username: $username, password: $password}){
-      username
+    register (username: $username, password: $password){
       token
     }
   }
