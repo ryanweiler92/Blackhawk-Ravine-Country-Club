@@ -19,10 +19,11 @@ This application is for members of Blackhawk Ravine, a fictional golf course in 
 Made with React, Tailwind CSS, MongoDB, Apollo & GraphQL
 
 ## Usage
-![screenshot](./public/images/screenshot.jpg)
+![screenshot](./client/src/assets/images/screenshot.jpg)
 
 ## Contributors
 * [Ryan-Weiler](https://github.com/ryanweiler92)
+I had some trouble with my original set of files which lead to losing a majority of the commit history on this repository. This app is entirely original despite the small commit history.
 
 
 ## License
