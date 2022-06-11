@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/new-project', err => {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/blackhawk-ravine', err => {
     if(err) throw err;
     console.log('Connected to MongoDB!!!')
 });
